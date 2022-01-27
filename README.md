@@ -1,5 +1,5 @@
 # Arternal Take Home Exercise
-### To-do List - George Wang
+### To-do List App - George Wang
 
 Purpose of this application is to create a To-do List application with basic functionalities of 
 
