@@ -113,7 +113,8 @@ class TodoList extends React.Component {
                                 <div key={k} className='todo-list-item'>
                                     <li>
                                         <div className='todo-list-row'>
-                                            <Tooltip title='Clicking this would mark this item as completed' placement='top'>
+                                            <Tooltip title={v.completed ? 'Clicking this would move the item back to to-do': 'Clicking this would mark this item as completed'} 
+                                                     placement='top'>
                                                 <Checkbox {...label} checked={v.completed} onChange={this.toggleCompletion.bind(this, k)} />
                                             </Tooltip>
                                             <div className='todos-description'>
