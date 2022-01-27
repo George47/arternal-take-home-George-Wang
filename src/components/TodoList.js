@@ -33,7 +33,7 @@ class TodoList extends React.Component {
                         this.state.todos.map((v,k) => {
                             return (
                                 <div key={k}>
-                                    {v.description}
+                                    <li>{v.description}</li>
                                 </div>
                             )
                         })
