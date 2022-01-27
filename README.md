@@ -20,6 +20,14 @@ Make sure you are at the root level of `arternal-take-home-george-wang` director
 Run
 ```
 npm install
-npm start
 ```
 to start the application.
+
+## Get Started
+
+Run
+```
+npm start
+```
+
+and navigate to `localhost:3000` on your browser to start using this application.
