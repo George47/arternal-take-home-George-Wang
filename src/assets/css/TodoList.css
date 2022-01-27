@@ -1,0 +1,76 @@
+.container{
+    width: 800px;
+    min-height: 200px;
+    margin: 0 auto;
+    margin-top: 3rem;
+    border: 1px solid silver;
+    box-shadow: 3px 5px #888888;
+    background-color: #fff;
+}
+
+.logo {
+    padding-left: 1rem;
+}
+
+.app-title {
+    display: flex;
+    padding: 10px 15px;
+    background-color: #c6d7d6;
+    box-sizing: border-box;
+    flex-direction: row;
+}
+
+.subtitle {
+    color: #000;
+    flex: 1;
+    text-align: right;
+    padding-right: 1rem;
+}
+
+.todo-list {
+    width: 90%;
+}
+
+.todo-list-item {
+    border-bottom: 1px solid black;
+    margin: 0.5rem 0 0.5rem 0;
+    height: 50px;
+    text-align: left;
+}
+
+.todo-list-item:last-child {
+    border-bottom: none;
+}
+
+.add-todos {
+    width: 220px;
+    margin-top: 1rem;
+    padding-left: 1rem;
+}
+
+.completed-todos {
+    text-decoration: line-through;
+}
+
+.todo-delete {
+    margin-right:1rem;
+}
+
+.todo-delete:hover {
+    opacity: 0.7;
+    transition: 0.2s;
+    cursor: pointer;
+}
+
+.todo-list-row {
+    display: flex;
+}
+
+.todos-description {
+    padding-top:0.8rem;
+    width: 70%;
+}
+
+.todo-created {
+    padding-top:0.8rem;
+}
