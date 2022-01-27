@@ -21,7 +21,7 @@ Run
 ```
 npm install
 ```
-to start the application.
+to install the necessary dependencies to start the application.
 
 ## Get Started
 
