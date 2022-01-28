@@ -39,3 +39,12 @@ Enter on input `Add To-do` to add a new to-do to list
 Clicking on checkbox on the left of to-do items would place them as completed
 
 Clicking on the delete icon would delete the to-do item regardless of completion
+
+## Areas of Improvements
+
+- Add a background image
+- Add tags for to-do items
+- Add section for completed to-dos
+- Refine typography
+- Drag and drop
+- Animations
