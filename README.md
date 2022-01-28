@@ -31,3 +31,11 @@ npm start
 ```
 
 and navigate to `localhost:3000` on your browser to start using this application.
+
+## Usage
+
+Enter on input `Add To-do` to add a new to-do to list
+
+Clicking on checkbox on the left of to-do items would place them as completed
+
+Clicking on the delete icon would delete the to-do item regardless of completion
