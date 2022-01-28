@@ -11,8 +11,11 @@ import Tooltip from '@mui/material/Tooltip';
 import Input from '@mui/material/Input';
 import InputLabel from '@mui/material/InputLabel';
 import InputAdornment from '@mui/material/InputAdornment';
+
+// MUI Icons
 import DeleteIcon from '@mui/icons-material/Delete';
 import AddIcon from '@mui/icons-material/Add';
+import Task from '@mui/icons-material/Task';
 
 const label = { inputProps: { 'aria-label': 'Checkbox' } };
 
@@ -22,6 +25,7 @@ class TodoList extends React.Component {
 
         // initiate to-do list with sample placeholders within state
         this.state = {
+            new_todo: '',
             todos: [
                 {
                     description: 'Walk the dog',
@@ -36,26 +40,40 @@ class TodoList extends React.Component {
         }
     }
 
-    // create new list on event
-    createNewTodo = (e) => {
+    handleInputChange = (e) => {
+        this.setState({ new_todo: e.target.value });
+    }
+
+    detectEnterKey = (e) => {
         // listens on enter key
         if (e.which === 13) {
-            let ele = e.target;
-
-            let listinfo = {
-                description: ele.value,
-                completed: false,
-                created: Date.now(),
-            }
-
-            let newlist = this.state.todos;
-            newlist.push(listinfo);
-
-            this.setState({
-                todos: newlist
-            });
-            ele.value = ""
+            this.createNewTodo(e);
         }
+    }
+
+    // create new list on event
+    createNewTodo = (e) => {
+        let ele = e.target;
+        if (!ele.value) ele.value = this.state.new_todo
+
+        let listinfo = {
+            description: ele.value,
+            completed: false,
+            created: Date.now(),
+        }
+
+        let newlist = this.state.todos;
+        newlist.push(listinfo);
+
+        this.setState({
+            todos: newlist
+        });
+
+        // reset input
+        ele.value = "";
+        this.setState({
+            new_todo: '',
+        });
     }
 
     // toggle completed
@@ -96,15 +114,22 @@ class TodoList extends React.Component {
                     <InputLabel htmlFor='input-with-icon-adornment'>
                         Add To-do
                     </InputLabel>
-                    <Input
-                        id='input-with-icon-adornment'
-                        onKeyPress={this.createNewTodo}
-                        startAdornment={
-                            <InputAdornment position='start'>
-                                <AddIcon />
-                            </InputAdornment>
-                        }
-                    />
+                    <div className="add-todos-input">
+                        <Input
+                            id='input-with-icon-adornment'
+                            onKeyPress={this.detectEnterKey}
+                            onChange={this.handleInputChange}
+                            value={this.state.new_todo}
+                            startAdornment={
+                                <InputAdornment position='start'>
+                                    <Task />
+                                </InputAdornment>
+                            }
+                        />
+                        <IconButton onClick={this.createNewTodo}>
+                            <AddIcon />
+                        </ IconButton>
+                    </div>
                 </div>
                 <ul className='todo-list'>
                     {
