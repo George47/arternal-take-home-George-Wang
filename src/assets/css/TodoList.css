@@ -42,10 +42,13 @@
     border-bottom: none;
 }
 
-.add-todos {
-    width: 220px;
+.modify-todos {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
     margin-top: 1rem;
-    padding-left: 1rem;
+    padding: 0 1rem;
+    box-sizing: border-box;
 }
 
 .completed-todos {
@@ -68,13 +71,9 @@
 
 .todos-description {
     padding-top:0.8rem;
-    width: 72%;
+    flex-grow: 1;
 }
 
 .todo-created {
     padding-top:0.8rem;
-}
-
-.add-todos-input {
-    display: flex;
 }

@@ -5,6 +5,7 @@ import '../assets/css/TodoList.css';
 import Logo from '../assets/images/Arternal.svg';
 
 // MUI component imports
+import Button from '@mui/material/Button';
 import Checkbox from '@mui/material/Checkbox';
 import IconButton from '@mui/material/IconButton';
 import Tooltip from '@mui/material/Tooltip';
@@ -30,7 +31,7 @@ class TodoList extends React.Component {
                 {
                     description: 'Walk the dog',
                     completed: false,
-                    created: 1643387302843,
+                    created: 1543387302243,
                 }, {
                     description: 'Clean the kitchen',
                     completed: true,
@@ -63,10 +64,12 @@ class TodoList extends React.Component {
         }
 
         let newlist = this.state.todos;
-        newlist.push(listinfo);
 
         this.setState({
-            todos: newlist
+            todos: [
+                listinfo,
+                ...newlist,
+            ]
         });
 
         // reset input
@@ -78,7 +81,7 @@ class TodoList extends React.Component {
 
     // toggle completed
     toggleCompletion = (index) => {
-        let data = this.state.todos;
+        const data = this.state.todos;
 
         // toggle
         data[index].completed = !data[index].completed;
@@ -90,7 +93,7 @@ class TodoList extends React.Component {
 
     // delete to-do list item
     deleteItem = (index) => {
-        let data = this.state.todos;
+        const data = this.state.todos;
 
         // remove todo item
         data.splice(index, 1);
@@ -98,6 +101,19 @@ class TodoList extends React.Component {
         this.setState({
             todos: data
         });
+    }
+
+    // clear all completed to-dos
+    clearCompletedItems = () => {
+        const data = this.state.todos;
+
+        const filtered = data.filter((el) => {
+            return !el.completed;
+        })
+
+        this.setState({
+            todos: filtered
+        })
     }
 
     render() {
@@ -110,11 +126,11 @@ class TodoList extends React.Component {
                 </div>
                 {/* to-do list content */}
                 <h3>List of To-dos</h3>
-                <div className='add-todos'>
-                    <InputLabel htmlFor='input-with-icon-adornment'>
-                        Add To-do
-                    </InputLabel>
+                <div className='modify-todos'>
                     <div className="add-todos-input">
+                        <InputLabel htmlFor='input-with-icon-adornment'>
+                            Add To-do
+                        </InputLabel>
                         <Input
                             id='input-with-icon-adornment'
                             onKeyPress={this.detectEnterKey}
@@ -129,6 +145,9 @@ class TodoList extends React.Component {
                         <IconButton onClick={this.createNewTodo}>
                             <AddIcon />
                         </ IconButton>
+                    </div>
+                    <div className="clear-all-completed">
+                        <Button variant="contained" color="error" onClick={this.clearCompletedItems}>Delete All Completed</Button>
                     </div>
                 </div>
                 <ul className='todo-list'>
